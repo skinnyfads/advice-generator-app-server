@@ -4,6 +4,11 @@ import cors from "cors";
 import "dotenv/config";
 import routes from "./routes/index.js";
 
+if (!process.env.SECRET) {
+  console.log("Please provide SECRET");
+  process.exit();
+}
+
 const app = express();
 const port = process.env.PORT || 8080;
 const uri = process.env.MDB_URI;
